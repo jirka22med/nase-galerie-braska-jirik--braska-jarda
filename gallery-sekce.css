@@ -79,7 +79,7 @@
 .gallery-presun-btn {
   position: absolute;
   top: 8px;
-  right: 8px;
+  left: 8px; /* vlevo, aby nepřekrývalo mazací tlačítko ✕ vpravo */
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   border: 1px solid var(--lcars-blue, #cc99ff);
