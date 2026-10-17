@@ -28,6 +28,7 @@
 .gallery-grid::-webkit-scrollbar-thumb { background: var(--lcars-primary); }
 
 .gallery-item {
+  position: relative; /* tlačítka ✕ a 🔀 se pozicují vůči své fotce */
   background: var(--lcars-panel);
    
    
