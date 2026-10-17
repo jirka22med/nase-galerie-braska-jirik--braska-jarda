@@ -78,8 +78,8 @@
 /* Tlačítko [🔀] pro otevření modálu přesunu na položce galerie */
 .gallery-presun-btn {
   position: absolute;
-  top: 8px;
-  left: 8px; /* vlevo, aby nepřekrývalo mazací tlačítko ✕ vpravo */
+  top: 2px;
+  left: 2px; /* vlevo, ve stejné lajně jako mazací ✕ vpravo (středy obou tlačítek 16 px od rohu) */
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   border: 1px solid var(--lcars-blue, #cc99ff);
