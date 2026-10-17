@@ -1,0 +1,145 @@
+/* ================================================================ */
+/*  LCARS Messenger | Galerie: SEKCE modul — Stylesheet              */
+/* ================================================================ */
+
+/* Kontejner záložek nad mřížkou galerie */
+.gallery-sekce-taby {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+  padding: 5px 0;
+  align-items: center;
+}
+
+/* Jednotlivé záložky (taby) v LCARS stylu */
+.gallery-sekce-tab {
+  background-color: var(--lcars-orange, #ff9900);
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.gallery-sekce-tab:hover {
+  background-color: var(--lcars-orange-light, #ffbb44);
+  transform: translateY(-1px);
+}
+
+/* Aktivní záložka */
+.gallery-sekce-tab.active {
+  background-color: var(--lcars-blue, #cc99ff);
+  color: #000;
+  box-shadow: 0 0 8px rgba(204, 153, 255, 0.6);
+}
+
+/* Tlačítko [+] pro přidání nové sekce */
+.gallery-sekce-tab-add {
+  background-color: var(--lcars-red, #cc6666);
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 6px 12px;
+}
+
+.gallery-sekce-tab-add:hover {
+  background-color: var(--lcars-red-light, #ff7777);
+}
+
+/* Skrytí položky při filtrování neaktivní sekce */
+.gallery-item.gallery-item-hidden {
+  display: none !important;
+}
+
+/* Indikační badge na fotografii (název sekce) */
+.gallery-sekce-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: var(--lcars-orange, #ff9900);
+  border: 1px solid var(--lcars-orange, #ff9900);
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  font-family: inherit;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Tlačítko [🔀] pro otevření modálu přesunu na položce galerie */
+.gallery-presun-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border: 1px solid var(--lcars-blue, #cc99ff);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 3;
+  opacity: 0; /* Zobrazí se při najetí na položku galerie */
+}
+
+.gallery-item:hover .gallery-presun-btn {
+  opacity: 1;
+}
+
+.gallery-presun-btn:hover {
+  background-color: var(--lcars-blue, #cc99ff);
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Seznam sekcí uvnitř přesunovacího modálu */
+.gallery-sekce-modal-seznam {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+/* Tlačítko volby sekce v modálu */
+.gallery-sekce-presun-btn {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid var(--lcars-orange, #ff9900);
+  padding: 10px 14px;
+  text-align: left;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.gallery-sekce-presun-btn:hover:not([disabled]) {
+  background-color: var(--lcars-orange, #ff9900);
+  color: #000;
+}
+
+/* Aktuální sekce v modálu (disabled) */
+.gallery-sekce-presun-btn.current,
+.gallery-sekce-presun-btn[disabled] {
+  border-color: #555;
+  color: #777;
+  cursor: default;
+  background-color: #111;
+}

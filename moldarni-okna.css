@@ -1,0 +1,110 @@
+/* ═══════════════════════════════════════════════════════════════
+   MODÁLNÍ OKNA
+═══════════════════════════════════════════════════════════════ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-box {
+  background: var(--lcars-panel);
+  border: 2px solid var(--lcars-primary);
+  border-radius: var(--radius-md);
+  padding: 0;
+  max-width: 92vw;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-small { max-width: 440px; width: 92%; }
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--lcars-primary);
+  flex-shrink: 0;
+}
+
+.modal-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #000;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: #000;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+}
+
+.modal-close-btn:hover { opacity: 0.6; }
+
+.modal-box > img {
+  max-width: 85vw;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+  margin: 16px auto;
+  border-radius: var(--radius-sm);
+}
+
+.modal-footer {
+  padding: 10px 16px;
+  background: var(--lcars-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.modal-popis {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+}
+
+.modal-autor {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  color: var(--lcars-secondary);
+}
+
+.modal-hint {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  padding: 14px 16px 0;
+}
+
+.modal-small .lcars-input {
+  margin: 12px 16px;
+  width: calc(100% - 32px);
+  flex: none;
+}
+
+.modal-actions {
+  padding: 8px 16px 16px;
+}
+
+.modal-actions .btn-odeslat {
+  width: 100%;
+  padding: 13px;
+  font-size: 12px;
+}

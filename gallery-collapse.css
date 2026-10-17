@@ -1,0 +1,59 @@
+/* ═══════════════════════════════════════════════════════════════
+   GALERIE — SBALOVACÍ PANELY (modul gallery-collapse.js)
+   Obrázková i video lišta defaultně sbalená, klik na hlavičku rozbalí
+═══════════════════════════════════════════════════════════════ */
+
+.gallery-collapse-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.gallery-collapse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--lcars-panel);
+  border: none;
+  border-bottom: 2px solid var(--lcars-secondary);
+  color: var(--lcars-secondary);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.gallery-collapse-header:hover {
+  color: var(--lcars-primary);
+}
+
+.gallery-collapse-sipka {
+  transition: transform 0.2s;
+}
+
+.gallery-collapse-open .gallery-collapse-sipka {
+  transform: rotate(180deg);
+}
+
+/* Tělo lišty — sbaleno defaultně (!important kvůli přebití
+   .gallery-add-bar / .gallery-video-add-bar { display: flex } bez
+   ohledu na pořadí načtení CSS souborů) */
+.gallery-collapse-body {
+  display: none !important;
+}
+
+.gallery-collapse-open .gallery-collapse-body {
+  display: flex !important;
+}
+
+/* ─── Responsive — na mobilu kompaktnější hlavička ─── */
+@media (max-width: 650px) {
+  .gallery-collapse-header {
+    padding: 8px 10px;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}

@@ -1,0 +1,146 @@
+/* ═══════════════════════════════════════════════════════════════
+   LOGIN SCREEN
+═══════════════════════════════════════════════════════════════ */
+#loginScreen {
+  position: fixed;
+  inset: 0;
+  background: var(--lcars-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+}
+
+.login-wrapper {
+  display: flex;
+  align-items: stretch;
+  max-width: 460px;
+  width: 92%;
+}
+
+.login-left-bar {
+  width: 22px;
+  background: var(--lcars-primary);
+  border-radius: var(--radius-pill) 0 0 var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.login-panel {
+  flex: 1;
+  background: var(--lcars-panel);
+  border: 1px solid var(--lcars-primary);
+  border-left: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.login-top-bar {
+  height: 10px;
+  background: var(--lcars-primary);
+}
+
+.login-content {
+  flex: 1;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-badge {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--lcars-secondary);
+  background: rgba(153,204,255,0.08);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+.login-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--lcars-primary);
+  letter-spacing: 4px;
+  line-height: 1.1;
+}
+
+.login-subtitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--lcars-purple);
+}
+
+.login-divider {
+  height: 2px;
+  background: linear-gradient(to right, var(--lcars-primary), transparent);
+  margin: 4px 0;
+}
+
+.login-info {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+.btn-login {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--lcars-primary);
+  color: #000;
+  border: none;
+  padding: 14px 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s, transform 0.1s;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.btn-login:hover { background: var(--lcars-text); transform: translateY(-1px); }
+.btn-login:active { transform: translateY(0); }
+
+.btn-icon {
+  width: 28px; height: 28px;
+  background: #000;
+  color: var(--lcars-primary);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 900;
+  flex-shrink: 0;
+}
+
+.login-error {
+  color: var(--lcars-red);
+  font-size: 12px;
+  font-family: 'Orbitron', sans-serif;
+  display: none;
+  padding: 8px;
+  border: 1px solid var(--lcars-red);
+  border-radius: var(--radius-sm);
+  background: rgba(204,0,0,0.08);
+}
+
+.login-bottom-bar {
+  height: 28px;
+  background: var(--lcars-purple);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #000;
+}

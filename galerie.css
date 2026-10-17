@@ -1,0 +1,107 @@
+/* ═══════════════════════════════════════════════════════════════
+   GALERIE
+═══════════════════════════════════════════════════════════════ */
+.gallery-add-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--lcars-dark);
+  border-bottom: 2px solid var(--lcars-primary);
+  flex-shrink: 0;
+}
+
+.gallery-popis-input { max-width: 200px; }
+
+.gallery-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: grid;
+  /* ZDE JE OPRAVA: Širší sloupce pro obdélníkový tvar */
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+   
+  scrollbar-width: thin;
+  scrollbar-color: var(--lcars-primary) var(--lcars-dark);
+}
+
+.gallery-grid::-webkit-scrollbar { width: 4px; }
+.gallery-grid::-webkit-scrollbar-thumb { background: var(--lcars-primary); }
+
+.gallery-item {
+  background: var(--lcars-panel);
+   
+   
+  
+  
+  transition: border-color 0.2s, transform 0.2s;
+  padding: 25px 15px ;
+  /* ZDE JE OPRAVA PROBLÉMU S NUDLIČKOU: */
+  display: flex;
+  flex-direction: column;
+  width: ;
+    height: ;
+}
+
+.gallery-item:hover {
+  border-color: var(--lcars-primary);
+  transform: scale(1.03);
+}
+
+.gallery-item-broken { opacity: 0.4; }
+
+.gallery-item img {
+  width: 100% !important;
+  max-height:   height: 100px !important; /* Fyzický zákaz splasknutí pod tuto výšku */
+  object-fit: cover !important; /* Rozprostře se přesně do toho rámu */
+  display: block !important;
+  flex-shrink: 0 !important; /* Zakáže systému fotku smrsknout */
+}
+
+.gallery-item-overlay {
+   
+}
+
+.gallery-popis {
+  font-size: 11px;
+  color: rgba(255,255,255,0.8);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gallery-autor {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  color: var(--lcars-secondary);
+  display: block;
+  margin-top: 2px;
+}
+
+.gallery-del-btn {
+  position: absolute;
+  top: 5px; right: 5px;
+  background: var(--lcars-red);
+  color: #fff;
+  border: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  font-size: 11px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.gallery-item:hover .gallery-del-btn { display: flex; }
+
+.gallery-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: rgba(153,153,204,0.5);
+}

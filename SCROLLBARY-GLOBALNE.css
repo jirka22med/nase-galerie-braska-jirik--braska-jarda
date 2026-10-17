@@ -1,0 +1,14 @@
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBARY GLOBÁLNĚ
+═══════════════════════════════════════════════════════════════ */
+* { scrollbar-width: thin; scrollbar-color: var(--lcars-primary) transparent; }
+*::-webkit-scrollbar { width: 4px; height: 4px; }
+*::-webkit-scrollbar-thumb { background: var(--lcars-primary); border-radius: 2px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   @MEDIA QUERIES — RESPONZIVNÍ DESIGN
+   Breakpointy:
+     900px  → Tablet landscape
+     650px  → Tablet portrait / velký telefon
+     420px  → Malý telefon
+═══════════════════════════════════════════════════════════════ */ 

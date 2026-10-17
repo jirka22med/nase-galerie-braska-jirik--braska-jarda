@@ -1,0 +1,135 @@
+/* gallery-slider.css — LCARS Messenger (Klubovna)
+   Styly pro přepínání obrázků v modálním okně galerie
+   Součást modularní architektury — načítat v index.html!
+   <link rel="stylesheet" href="gallery-slider.css">
+═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────
+   WRAPPER kolem obrázku — drží šipky po stranách
+───────────────────────────────────────────────────────────────*/
+.modal-img-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.modal-img-wrapper img {
+  max-width:  85vw;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+  margin: 16px auto;
+  border-radius: var(--radius-sm);
+  transition: opacity 0.2s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ŠIPKY — prev / next
+───────────────────────────────────────────────────────────────*/
+.modal-arrow {
+  position: absolute;
+  top:       50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.55);
+  border:     2px solid var(--lcars-primary);
+  color:      var(--lcars-primary);
+  font-size:  22px;
+  font-weight: 700;
+  width:  46px;
+  height: 46px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.15s, transform 0.15s, color 0.15s;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.modal-arrow:hover {
+  background: var(--lcars-primary);
+  color:      #000;
+  transform:  translateY(-50%) scale(1.1);
+}
+
+.modal-arrow:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.modal-arrow-prev { left:  10px; }
+.modal-arrow-next { right: 10px; }
+
+/* ─────────────────────────────────────────────────────────────
+   ČÍTAČ — "3 / 12" v hlavičce modálu
+───────────────────────────────────────────────────────────────*/
+.modal-citac {
+  font-family: 'Orbitron', sans-serif;
+  font-size:   11px;
+  letter-spacing: 3px;
+  color:       rgba(0, 0, 0, 0.7);
+  margin-left: auto;
+  padding-right: 14px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE — tablet portrait (max-width: 650px)
+───────────────────────────────────────────────────────────────*/
+@media (max-width: 650px) {
+  .modal-arrow {
+    width:     36px;
+    height:    36px;
+    font-size: 16px;
+  }
+
+  .modal-arrow-prev { left:  5px; }
+  .modal-arrow-next { right: 5px; }
+
+  .modal-img-wrapper img {
+    max-width:  92vw;
+    max-height: 60vh;
+  }
+
+  .modal-citac {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE — malý telefon (max-width: 420px)
+───────────────────────────────────────────────────────────────*/
+@media (max-width: 420px) {
+  .modal-arrow {
+    width:     30px;
+    height:    30px;
+    font-size: 13px;
+  }
+
+  .modal-img-wrapper img {
+    max-width:  96vw;
+    max-height: 55vh;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   LANDSCAPE TELEFON — nízká výška obrazovky
+───────────────────────────────────────────────────────────────*/
+@media (max-height: 500px) and (max-width: 900px) {
+  .modal-img-wrapper img {
+    max-height: 50vh;
+    margin:     8px auto;
+  }
+
+  .modal-arrow {
+    width:     30px;
+    height:    30px;
+    font-size: 13px;
+  }
+}

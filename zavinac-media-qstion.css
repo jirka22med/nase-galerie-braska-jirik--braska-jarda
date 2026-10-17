@@ -1,0 +1,702 @@
+/* ───────────────────────────────────────────────────────────────
+   TABLET LANDSCAPE — max-width: 900px
+─────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+
+  /* Header — zjednodušení */
+  .header-bars { width: 70px; }
+  .header-curve-block { width: 36px; }
+  .header-main-title { font-size: 13px; letter-spacing: 2px; }
+  .header-sub { font-size: 8px; letter-spacing: 2px; }
+  .header-right-cap { width: 12px; }
+
+  /* Nav — užší */
+  :root { --nav-w: 150px; }
+
+  .nav-btn {
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 12px 10px;
+  }
+
+  /* Zprávy — širší bubliny */
+  .message { max-width: 82%; }
+
+  /* Galerie — méně sloupců */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  /* Settings — méně sloupců */
+  .settings-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   TABLET PORTRAIT / VELKÝ TELEFON — max-width: 650px
+   Klíčová změna: NAV jde DOLŮ jako tab bar!
+─────────────────────────────────────────────────────────────── */
+@media (max-width: 650px) {
+
+  /* App container — sloupec místo řádku */
+  #appContainer {
+    flex-direction: column;
+  }
+
+  /* App body — main bere vše, nav jde dolů */
+  .app-body {
+    flex-direction: column-reverse; /* nav dole */
+    height: calc(100vh - var(--header-h));
+    overflow: hidden;
+  }
+
+  /* ── SPODNÍ NAV TAB BAR ── */
+  .lcars-nav {
+    width: 100%;
+    height: 58px;
+    flex-direction: row;
+    align-items: stretch;
+    border-left: none;
+    border-top: 3px solid var(--lcars-primary);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  /* Dekorativní LCARS bloky v navu — schovají se */
+  .nav-top-block,
+  .nav-middle-block,
+  .nav-spacer,
+  .nav-bottom-block { display: none; }
+
+  /* Nav tlačítka — vodorovně */
+  .nav-buttons {
+    flex-direction: row;
+    width: 100%;
+    gap: 0;
+    padding: 0;
+  }
+
+  .nav-btn {
+    flex: 1;
+    border-radius: 0;
+    justify-content: center;
+    flex-direction: column;
+    padding: 6px 4px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    gap: 3px;
+    text-align: center;
+    height: 100%;
+  }
+
+  .nav-btn:hover { transform: none; }
+  .nav-btn.active { border-top: 3px solid #000; }
+
+  .nav-icon { font-size: 18px; }
+
+  /* Hlavní obsah — flexibilní výška */
+  .app-main {
+    flex: 1;
+    border-left: none;
+    border-bottom: none;
+    min-height: 0;
+  }
+
+  /* ── HEADER ── */
+  :root { --header-h: 52px; }
+
+  .header-curve-block { width: 26px; }
+  .header-bars { width: 50px; }
+  .header-bar-top { height: 26px; }
+  .header-bar-bottom { height: 8px; }
+
+  .header-main-title {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .header-sub { display: none; }
+
+  .user-display-name { display: none; }
+
+  .btn-odhlasit {
+    font-size: 8px;
+    padding: 0 10px;
+    letter-spacing: 1px;
+  }
+
+  .header-right-cap { width: 8px; }
+
+  /* ── ZPRÁVY ── */
+  .messages-container { padding: 10px 10px; gap: 8px; }
+
+  .message { max-width: 90%; }
+
+  .msg-bubble { padding: 8px 10px; }
+  .msg-text { font-size: 13px; }
+
+  .msg-avatar {
+    width: 26px; height: 26px; min-width: 26px;
+    font-size: 11px;
+  }
+
+  .msg-image {
+    max-width: 220px;
+    max-height: 170px;
+  }
+
+  /* ── CHAT INPUT ── */
+  .chat-input-row {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .lcars-input { font-size: 13px; padding: 9px 10px; }
+
+  .btn-odeslat {
+    font-size: 9px;
+    padding: 9px 12px;
+    letter-spacing: 1px;
+  }
+
+  .btn-image-attach { padding: 9px 10px; font-size: 14px; }
+
+  /* ── GALERIE ── */
+  .gallery-add-bar {
+    flex-wrap: wrap;
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .gallery-popis-input { max-width: 100%; }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    padding: 28px;
+    gap: 8px;
+  }
+
+  .gallery-item img { height: 80px; }
+
+  /* ── NASTAVENÍ ── */
+  .settings-scroll { padding: 12px; }
+
+  .settings-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .settings-item { padding: 10px; }
+
+  /* ── MODÁL ── */
+  .modal-box {
+    max-width: 98vw;
+    max-height: 96vh;
+  }
+
+  .modal-box > img {
+    max-width: 96vw;
+    max-height: 65vh;
+    margin: 10px auto;
+  }
+
+  .modal-title { font-size: 9px; letter-spacing: 2px; }
+
+  /* ── LOGIN ── */
+  .login-title { font-size: 28px; }
+  .login-content { padding: 24px 22px; }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   MALÝ TELEFON — max-width: 420px
+─────────────────────────────────────────────────────────────── */
+@media (max-width: 420px) {
+
+  /* Header ještě kompaktnější */
+  :root { --header-h: 46px; }
+
+  .header-curve-block { width: 18px; }
+  .header-bars { width: 34px; }
+  .header-bar-top { height: 20px; }
+  .header-bar-bottom { height: 6px; }
+
+  .header-main-title { font-size: 9px; letter-spacing: 0px; }
+  .header-user { padding: 0 6px; }
+
+  .user-avatar, .user-avatar-placeholder {
+    width: 26px; height: 26px;
+    font-size: 11px;
+  }
+
+  .btn-odhlasit { font-size: 7px; padding: 0 7px; letter-spacing: 0; }
+
+  /* Nav tab bar — kompaktnější */
+  .lcars-nav { height: 52px; }
+
+  .nav-btn { font-size: 7px; }
+  .nav-icon { font-size: 16px; }
+
+  /* Zprávy */
+  .messages-container { padding: 8px; gap: 6px; }
+  .message { max-width: 95%; }
+  .msg-text { font-size: 12px; }
+  .msg-sender { font-size: 8px; }
+  .msg-cas { font-size: 8px; }
+
+  .msg-image {
+    max-width: 190px;
+    max-height: 140px;
+  }
+
+  /* Chat input — odeslat tlačítko zmenšit */
+  .chat-input-row { padding: 6px 8px; gap: 5px; }
+  .lcars-input { font-size: 12px; padding: 8px 8px; }
+  .btn-odeslat { font-size: 8px; padding: 8px 9px; letter-spacing: 0; }
+  .btn-image-attach { padding: 8px 8px; font-size: 13px; }
+
+  /* Galerie — 2 pevné sloupce */
+  .gallery-add-bar { flex-direction: column; }
+  .gallery-popis-input { max-width: 100%; }
+
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .gallery-item img { height: 250px; }
+  .gallery-popis { font-size: 10px; }
+  .gallery-autor { font-size: 8px; }
+
+  /* Nastavení — 1 sloupec */
+  .settings-grid { grid-template-columns: 1fr; }
+
+  /* Datum oddělovač */
+  .date-separator span { font-size: 8px; letter-spacing: 1px; }
+
+  /* Modál URL obrázku */
+  .modal-small { width: 98%; }
+  .modal-small .lcars-input { margin: 8px 10px; width: calc(100% - 20px); }
+  .modal-actions { padding: 6px 10px 12px; }
+
+  /* Login */
+  .login-title { font-size: 24px; }
+  .login-content { padding: 18px 16px; gap: 10px; }
+  .login-wrapper { width: 96%; }
+  .login-badge { font-size: 9px; letter-spacing: 3px; }
+  .btn-login { font-size: 10px; padding: 12px 14px; }
+
+  /* Sekce header */
+  .sekce-label { font-size: 9px; letter-spacing: 2px; }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   LANDSCAPE TELEFON (ležatě) — max-height: 500px + mobil
+   Zmenšit header a nav na minimum
+─────────────────────────────────────────────────────────────── */
+@media (max-height: 500px) and (max-width: 900px) {
+
+  :root { --header-h: 40px; }
+
+  .lcars-nav { height: 46px; }
+  .nav-btn { font-size: 7px; padding: 4px; }
+  .nav-icon { font-size: 14px; }
+
+  .header-main-title { font-size: 9px; }
+  .header-curve-block { width: 20px; }
+  .header-bars { width: 40px; }
+
+  .messages-container { padding: 6px 8px; gap: 5px; }
+  .chat-input-row { padding: 5px 8px; }
+
+  .msg-text { font-size: 12px; }
+  .msg-bubble { padding: 6px 9px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   @MEDIA QUERIES — DESKTOP ROZLIŠENÍ
+   Breakpointy:
+     min-width: 901px   → Desktop standard (základ)
+     min-width: 1200px  → FHD 1080p
+     min-width: 1600px  → 2K / widescreen
+     min-width: 1920px  → 4K / ultrawide (velitelský můstek!)
+═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   DESKTOP STANDARD — min-width: 901px
+   Toto je výchozí stav — explicitně potvrzujeme hodnoty
+─────────────────────────────────────────────────────────────── */
+@media (min-width: 901px) {
+
+  :root {
+    --nav-w:    190px;
+    --header-h: 64px;
+  }
+
+  /* Nav — vždy viditelný na straně */
+  .lcars-nav {
+    width: var(--nav-w);
+    height: auto;
+    flex-direction: column;
+    border-top: none;
+    border-right: none;
+  }
+
+  .nav-top-block,
+  .nav-middle-block,
+  .nav-spacer,
+  .nav-bottom-block { display: block; }
+
+  .nav-buttons {
+    flex-direction: column;
+    width: auto;
+    padding-right: 8px;
+    gap: 5px;
+  }
+
+  .nav-btn {
+    flex-direction: row;
+    border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+    justify-content: flex-start;
+    height: auto;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 13px 16px;
+  }
+
+  .nav-btn:hover { transform: translateX(4px); }
+  .nav-btn.active { border-top: none; }
+
+  .nav-icon { font-size: 14px; }
+
+  /* Zprávy — omezenější šířka bublin */
+  .message { max-width: 72%; }
+
+  /* Header — plný */
+  .header-sub { display: block; }
+  .user-display-name { display: inline; }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   FHD 1080p — min-width: 1200px
+─────────────────────────────────────────────────────────────── */
+@media (min-width: 1200px) {
+
+  :root {
+    --nav-w:    220px;
+    --header-h: 70px;
+  }
+
+  /* Header — větší a výraznější */
+  .header-curve-block { width: 60px; }
+  .header-bars { width: 140px; }
+  .header-bar-top { height: 44px; }
+  .header-bar-bottom { height: 12px; }
+
+  .header-main-title {
+    font-size: 18px;
+    letter-spacing: 4px;
+  }
+
+  .header-sub {
+    font-size: 10px;
+    letter-spacing: 4px;
+  }
+
+  .user-avatar,
+  .user-avatar-placeholder { width: 38px; height: 38px; }
+
+  .user-display-name { font-size: 12px; }
+
+  .btn-odhlasit {
+    font-size: 11px;
+    padding: 0 22px;
+    letter-spacing: 2px;
+  }
+
+  /* Nav — širší s více prostorem */
+  .nav-top-block { height: 60px; }
+
+  .nav-btn {
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 14px 18px;
+  }
+
+  .nav-icon { font-size: 16px; }
+
+  /* Zprávy — větší fonty */
+  .msg-text { font-size: 15px; }
+  .msg-sender { font-size: 10px; letter-spacing: 2px; }
+  .msg-cas { font-size: 10px; }
+  .msg-bubble { padding: 11px 15px; }
+
+  .msg-image {
+    max-width: 320px;
+    max-height: 260px;
+  }
+
+  /* Chat input */
+  .lcars-input { font-size: 15px; padding: 12px 16px; }
+
+  .btn-odeslat {
+    font-size: 12px;
+    padding: 12px 22px;
+    letter-spacing: 2px;
+  }
+
+  .btn-image-attach { padding: 12px 16px; font-size: 18px; }
+
+  /* Galerie — více sloupců */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .gallery-item img { height: 150px; }
+
+  .gallery-popis { font-size: 12px; }
+  .gallery-autor { font-size: 10px; }
+
+  /* Galerie přidávání */
+  .gallery-add-bar { padding: 12px 16px; gap: 10px; }
+
+  /* Nastavení */
+  .settings-scroll { padding: 22px; }
+
+  .settings-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .settings-item { padding: 16px; }
+  .settings-label { font-size: 10px; }
+  .settings-help { font-size: 12px; }
+  .settings-hex { font-size: 13px; }
+
+  .settings-color { width: 56px; height: 40px; }
+
+  /* Datum oddělovač */
+  .date-separator span { font-size: 10px; letter-spacing: 4px; }
+
+  /* Sekce header */
+  .sekce-header { padding: 12px 22px; }
+  .sekce-label { font-size: 12px; letter-spacing: 5px; }
+  .sekce-status { font-size: 11px; }
+
+  /* Zprávy kontejner */
+  .messages-container { padding: 20px 24px; gap: 12px; }
+  .chat-input-row { padding: 12px 18px; gap: 10px; }
+
+  /* Avatar v zprávě */
+  .msg-avatar { width: 34px; height: 34px; min-width: 34px; font-size: 14px; }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2K / WIDESCREEN — min-width: 1600px
+─────────────────────────────────────────────────────────────── */
+@media (min-width: 1600px) {
+
+  :root {
+    --nav-w:    260px;
+    --header-h: 76px;
+  }
+
+  /* Header — plný LCARS přepych */
+  .header-curve-block { width: 72px; }
+  .header-bars { width: 180px; }
+  .header-bar-top { height: 50px; }
+  .header-bar-bottom { height: 14px; }
+
+  .header-main-title {
+    font-size: 20px;
+    letter-spacing: 6px;
+  }
+
+  .header-sub {
+    font-size: 11px;
+    letter-spacing: 6px;
+  }
+
+  .user-avatar,
+  .user-avatar-placeholder { width: 42px; height: 42px; font-size: 16px; }
+
+  .user-display-name { font-size: 13px; }
+
+  .btn-odhlasit { font-size: 12px; padding: 0 28px; letter-spacing: 2px; }
+
+  /* Nav — luxusní */
+  .nav-top-block { height: 74px; }
+  .nav-middle-block { height: 14px; }
+
+  .nav-btn {
+    font-size: 13px;
+    letter-spacing: 3px;
+    padding: 16px 20px;
+  }
+
+  .nav-icon { font-size: 18px; }
+
+  /* Chat */
+  .messages-container { padding: 24px 32px; gap: 14px; }
+  .chat-input-row { padding: 14px 24px; gap: 12px; }
+
+  .message { max-width: 65%; }
+
+  .msg-text { font-size: 16px; }
+  .msg-bubble { padding: 13px 17px; }
+  .msg-sender { font-size: 11px; }
+  .msg-cas { font-size: 11px; }
+  .msg-avatar { width: 38px; height: 38px; min-width: 38px; font-size: 15px; }
+
+  .msg-image {
+    max-width: 380px;
+    max-height: 300px;
+  }
+
+  .lcars-input { font-size: 16px; padding: 14px 18px; }
+  .btn-odeslat { font-size: 13px; padding: 14px 28px; }
+  .btn-image-attach { padding: 14px 18px; font-size: 20px; }
+
+  /* Galerie */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    padding: 22px;
+    gap: 16px;
+  }
+
+  .gallery-item img { height: 170px; }
+  .gallery-add-bar { padding: 14px 22px; gap: 12px; }
+  .gallery-popis { font-size: 13px; }
+  .gallery-autor { font-size: 11px; }
+
+  /* Nastavení */
+  .settings-scroll { padding: 28px; }
+
+  .settings-grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
+  }
+
+  .settings-item { padding: 18px; }
+
+  /* Sekce header */
+  .sekce-header { padding: 14px 28px; }
+  .sekce-label { font-size: 13px; letter-spacing: 6px; }
+
+  /* Modál */
+  .modal-box > img {
+    max-width: 80vw;
+    max-height: 78vh;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4K / ULTRAWIDE VELITELSKÝ MŮSTEK — min-width: 1920px
+   Admirálův can-width: 100% 😄
+─────────────────────────────────────────────────────────────── */
+@media (min-width: 1920px) {
+
+  :root {
+    --nav-w:    300px;
+    --header-h: 84px;
+  }
+
+  /* Header — ultra LCARS */
+  .header-curve-block { width: 86px; }
+  .header-bars { width: 220px; }
+  .header-bar-top { height: 58px; }
+  .header-bar-bottom { height: 16px; }
+
+  .header-main-title {
+    font-size: 24px;
+    letter-spacing: 8px;
+  }
+
+  .header-sub {
+    font-size: 12px;
+    letter-spacing: 8px;
+  }
+
+  .user-avatar,
+  .user-avatar-placeholder { width: 48px; height: 48px; font-size: 18px; }
+
+  .user-display-name { font-size: 14px; letter-spacing: 2px; }
+
+  .btn-odhlasit { font-size: 13px; padding: 0 34px; letter-spacing: 3px; }
+
+  /* Nav */
+  .nav-top-block { height: 90px; }
+  .nav-middle-block { height: 16px; }
+  .nav-bottom-block { height: 54px; }
+
+  .nav-btn {
+    font-size: 14px;
+    letter-spacing: 3px;
+    padding: 18px 24px;
+    gap: 12px;
+  }
+
+  .nav-icon { font-size: 20px; }
+
+  /* Chat */
+  .messages-container { padding: 28px 40px; gap: 16px; }
+  .chat-input-row { padding: 16px 30px; gap: 14px; }
+
+  .message { max-width: 60%; }
+
+  .msg-text { font-size: 17px; line-height: 1.6; }
+  .msg-bubble { padding: 14px 20px; }
+  .msg-sender { font-size: 12px; letter-spacing: 2px; }
+  .msg-cas { font-size: 12px; }
+  .msg-avatar { width: 44px; height: 44px; min-width: 44px; font-size: 17px; }
+
+  .msg-image {
+    max-width: 460px;
+    max-height: 360px;
+  }
+
+  .lcars-input { font-size: 17px; padding: 16px 20px; }
+  .btn-odeslat { font-size: 14px; padding: 16px 34px; letter-spacing: 3px; }
+  .btn-image-attach { padding: 16px 20px; font-size: 22px; }
+
+  /* Galerie */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    padding: 28px;
+    gap: 20px;
+  }
+
+  .gallery-item img { height: 200px; }
+  .gallery-add-bar { padding: 16px 28px; gap: 14px; }
+  .gallery-popis { font-size: 14px; }
+  .gallery-autor { font-size: 12px; }
+
+  /* Nastavení */
+  .settings-scroll { padding: 34px; }
+
+  .settings-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .settings-item { padding: 22px; }
+  .settings-label { font-size: 11px; }
+  .settings-help { font-size: 13px; }
+
+  /* Sekce header */
+  .sekce-header { padding: 16px 34px; }
+  .sekce-label { font-size: 14px; letter-spacing: 8px; }
+  .sekce-status { font-size: 13px; }
+
+  /* Datum oddělovač */
+  .date-separator span { font-size: 11px; letter-spacing: 6px; }
+
+  /* Modál */
+  .modal-box > img {
+    max-width: 75vw;
+    max-height: 80vh;
+  }
+}

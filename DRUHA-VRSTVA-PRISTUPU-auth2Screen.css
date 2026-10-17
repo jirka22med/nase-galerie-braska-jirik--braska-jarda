@@ -1,0 +1,324 @@
+/* ═══════════════════════════════════════════════════════════════
+   DRUHÁ VRSTVA PŘÍSTUPU — auth2Screen
+═══════════════════════════════════════════════════════════════ */
+#auth2Screen {
+  position: fixed;
+  inset: 0;
+  background: var(--lcars-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 890;
+}
+
+.auth2-wrapper {
+  display: flex;
+  align-items: stretch;
+  max-width: 480px;
+  width: 92%;
+}
+
+.auth2-left-bar {
+  width: 22px;
+  background: var(--lcars-secondary);
+  border-radius: var(--radius-pill) 0 0 var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.auth2-panel {
+  flex: 1;
+  background: var(--lcars-panel);
+  border: 1px solid var(--lcars-secondary);
+  border-left: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.auth2-top-bar {
+  height: 10px;
+  background: var(--lcars-secondary);
+}
+
+.auth2-content {
+  flex: 1;
+  padding: 28px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.auth2-badge {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--lcars-secondary);
+  background: rgba(153,204,255,0.08);
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+.auth2-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.auth2-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--lcars-secondary);
+  letter-spacing: 3px;
+  line-height: 1.2;
+}
+
+.auth2-subtitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--lcars-purple);
+}
+
+.auth2-divider {
+  height: 2px;
+  background: linear-gradient(to right, var(--lcars-secondary), transparent);
+  margin: 2px 0;
+}
+
+/* Info o přihlášeném uživateli */
+.auth2-user-info {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  background: rgba(153,204,255,0.06);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--lcars-secondary);
+}
+
+/* Input řádek s okem */
+.auth2-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.auth2-input {
+  flex: 1;
+  font-size: 18px;
+  letter-spacing: 6px;
+}
+
+.auth2-show-btn {
+  background: rgba(153,204,255,0.1);
+  border: 1px solid var(--lcars-secondary);
+  color: var(--lcars-secondary);
+  padding: 10px 13px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.auth2-show-btn:hover { background: rgba(153,204,255,0.25); }
+
+/* Tlačítko potvrdit */
+.btn-auth2 {
+  background: var(--lcars-secondary) !important;
+  color: #000 !important;
+  margin-top: 4px;
+  letter-spacing: 2px;
+}
+
+.btn-auth2:hover { background: #c0dfff !important; }
+
+.btn-auth2:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Chybová hláška */
+.auth2-error {
+  color: var(--lcars-red);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  display: none;
+  padding: 9px 12px;
+  border: 1px solid var(--lcars-red);
+  border-radius: var(--radius-sm);
+  background: rgba(204,0,0,0.08);
+  line-height: 1.5;
+}
+
+/* Odkaz odhlásit */
+.auth2-odhlasit-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.3);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  transition: color 0.15s;
+  margin-top: 4px;
+}
+
+.auth2-odhlasit-btn:hover { color: var(--lcars-red); }
+
+.auth2-bottom-bar {
+  height: 28px;
+  background: var(--lcars-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+/* Shake animace při špatném hesle */
+@keyframes auth2-shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-6px); }
+  80%       { transform: translateX(6px); }
+}
+
+.auth2-shake { animation: auth2-shake 0.4s ease; }
+
+/* Responsive */
+@media (max-width: 500px) {
+  .auth2-title { font-size: 20px; }
+  .auth2-content { padding: 20px 18px; gap: 11px; }
+  .auth2-input { font-size: 15px; letter-spacing: 4px; }
+}
+
+.lcars-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--lcars-panel);
+  border: 1px solid var(--lcars-primary);
+  border-radius: var(--radius-pill);
+  padding: 10px 22px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--lcars-text);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 800;
+  white-space: nowrap;
+}
+.lcars-toast.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.druhy-online-status {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px; letter-spacing: 2px;
+}
+.msg-footer-row {
+  display: flex; align-items: center;
+  gap: 6px; justify-content: flex-end; margin-top: 4px;
+}
+.msg-read-status {
+  font-size: 11px; color: var(--lcars-secondary);
+}
+.msg-reactions { display: flex; gap: 4px; flex-wrap: wrap; }
+.reakce-chip {
+  background: rgba(255,255,255,0.1); border-radius: 12px;
+  padding: 2px 8px; font-size: 13px; cursor: pointer;
+  border: 1px solid transparent; transition: background 0.15s;
+}
+.reakce-chip.moje {
+  background: rgba(255,153,0,0.2);
+  border-color: var(--lcars-primary);
+}
+.reakce-pocet { font-size: 11px; }
+
+
+
+.nickname-section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px; letter-spacing: 4px;
+  color: var(--lcars-secondary);
+  margin-bottom: 6px;
+}
+.nickname-hint {
+  font-size: 12px; color: rgba(255,255,255,0.4);
+  margin-bottom: 18px;
+}
+.nickname-item {
+  background: var(--lcars-panel);
+  border: 1px solid rgba(153,153,204,0.4);
+  border-radius: var(--radius-md);
+  padding: 16px; margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 8px 14px;
+  align-items: center;
+}
+.nickname-avatar {
+  width: 44px; height: 44px;
+  background: var(--lcars-primary);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px; font-weight: 700; color: #000;
+  grid-row: 1 / 3;
+}
+.nickname-realname {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px; letter-spacing: 2px;
+  color: var(--lcars-text);
+}
+.nickname-sub {
+  font-size: 10px; color: rgba(255,255,255,0.3);
+}
+.nickname-input-group {
+  grid-column: 1 / -1;
+  display: flex; gap: 8px; align-items: center;
+}
+.nickname-input { flex: 1; }
+.btn-nick-ulozit {
+  white-space: nowrap; padding: 9px 14px;
+  font-size: 10px; letter-spacing: 1px;
+  flex-shrink: 0;
+}
+.btn-nick-smazat {
+  background: none;
+  border: 1px solid var(--lcars-red);
+  color: var(--lcars-red);
+  width: 34px; height: 34px;
+  border-radius: var(--radius-sm);
+  cursor: pointer; font-size: 14px;
+  flex-shrink: 0; transition: background 0.15s;
+}
+.btn-nick-smazat:hover { background: rgba(204,0,0,0.15); }
+.nickname-preview {
+  grid-column: 1 / -1;
+  font-size: 11px; color: rgba(255,255,255,0.4);
+}
+.nickname-preview strong { color: var(--lcars-secondary); }
+.nickname-prazdno {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px; letter-spacing: 3px;
+  color: rgba(153,153,204,0.4);
+  text-align: center; padding: 40px;
+}

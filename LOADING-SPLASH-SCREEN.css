@@ -1,0 +1,109 @@
+/* ═══════════════════════════════════════════════════════════════
+   LOADING SPLASH SCREEN
+═══════════════════════════════════════════════════════════════ */
+#loadingScreen {
+  position: fixed;
+  inset: 0;
+  background: var(--lcars-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.loading-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loading-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--lcars-primary);
+  letter-spacing: 8px;
+}
+
+.loading-sub {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--lcars-secondary);
+}
+
+/* Animovaná LCARS progress bar */
+.loading-bar-track {
+  width: 320px;
+  height: 8px;
+  background: rgba(255,153,0,0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255,153,0,0.3);
+}
+
+.loading-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--lcars-primary);
+  border-radius: 4px;
+  animation: lcarsLoad 1.8s ease-in-out forwards;
+}
+
+@keyframes lcarsLoad {
+  0%   { width: 0%; }
+  40%  { width: 60%; }
+  70%  { width: 80%; }
+  90%  { width: 92%; }
+  100% { width: 100%; }
+}
+
+.loading-status {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(255,153,0,0.6);
+  animation: lcarsFlicker 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes lcarsFlicker {
+  0%   { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Tři LCARS dekorativní bloky */
+.loading-blocks {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.loading-block {
+  height: 10px;
+  border-radius: 5px;
+  animation: lcarsBlockPulse 1.4s ease-in-out infinite alternate;
+}
+
+.loading-block:nth-child(1) { width: 60px;  background: var(--lcars-primary);   animation-delay: 0s; }
+.loading-block:nth-child(2) { width: 30px;  background: var(--lcars-purple);    animation-delay: 0.2s; }
+.loading-block:nth-child(3) { width: 80px;  background: var(--lcars-secondary); animation-delay: 0.4s; }
+.loading-block:nth-child(4) { width: 40px;  background: var(--lcars-primary);   animation-delay: 0.6s; }
+.loading-block:nth-child(5) { width: 20px;  background: var(--lcars-purple);    animation-delay: 0.8s; }
+
+@keyframes lcarsBlockPulse {
+  0%   { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* Fade out animace při skrytí */
+#loadingScreen.fade-out {
+  animation: loadingFadeOut 0.4s ease-out forwards;
+}
+
+@keyframes loadingFadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}

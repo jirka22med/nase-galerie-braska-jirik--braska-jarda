@@ -1,0 +1,47 @@
+/* ═══════════════════════════════════════════════════════════════
+   CSS PROMĚNNÉ — přepisovány z Firestore (settings.js)
+═══════════════════════════════════════════════════════════════ */  
+:root {
+  /* Hlavní barvy — přepisuje settings.js */
+  --lcars-primary:   #FF9900;
+  --lcars-secondary: #99CCFF;
+  --lcars-bg:        #111111;
+  --msg-moje:        #7a3800;
+  --msg-jina:        #1a1a2e;
+  --lcars-text:      #FFCC00;
+  --lcars-purple:    #9999CC;
+
+  /* Fixní barvy — nemění uživatel */
+  --lcars-black:     #000000;
+  --lcars-dark:      #0a0a0a;
+  --lcars-panel:     #181818;
+  --lcars-blue:      #3399FF;
+  --lcars-red:       #CC0000;
+  --lcars-green:     #00CC66;
+
+  /* Layout */
+  --nav-w:           190px;
+  --header-h:        64px;
+  --input-h:         56px;
+  --radius-sm:       4px;
+  --radius-md:       8px;
+  --radius-pill:     30px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--lcars-dark);
+}
+
+body {
+  font-family: 'Exo 2', 'Segoe UI', sans-serif;
+  color: var(--lcars-text);
+  display: flex;
+  flex-direction: column;
+}

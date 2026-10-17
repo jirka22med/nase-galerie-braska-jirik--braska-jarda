@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naše galerie</title>
+  <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/jirka22med/nase-klubovna-braska-jirik--braska-jarda-cz/a0f431b1d5068df6d78cb6459db8e34293107a3a/gemini-svg.svg">
+
+  <!-- 1. PROMĚNNÉ A ZÁKLAD -->
+  <link rel="stylesheet" href="CSS-PROMENNE-prepisovany-z-Firestore.css">
+
+  <!-- 2. LAYOUT -->
+  <link rel="stylesheet" href="APP-CONTAINER.css">
+  <link rel="stylesheet" href="LCARS-HEADER.css">
+  <link rel="stylesheet" href="APP-BODY.css">
+  <link rel="stylesheet" href="MAIN-CONTENT-AREA.css">
+
+  <!-- 3. KOMPONENTY GALERIE -->
+  <link rel="stylesheet" href="LCARS-VSTUPY-A-TLACITKA.css">
+  <link rel="stylesheet" href="galerie.css">
+  <link rel="stylesheet" href="gallery-slider.css">
+  <link rel="stylesheet" href="moldarni-okna.css">
+
+  <!-- 4. GLOBÁLNÍ ÚPRAVY A RESPONZIVITA -->
+  <link rel="stylesheet" href="SCROLLBARY-GLOBALNE.css">
+  <link rel="stylesheet" href="zavinac-media-qstion.css">
+  <link rel="stylesheet" href="gallery-sekce.css">
+  <link rel="stylesheet" href="gallery-video.css">
+  <link rel="stylesheet" href="gallery-collapse.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="appContainer" style="display:flex">
+
+    <!-- LCARS HEADER -->
+    <header class="lcars-header">
+      <div class="header-left">
+        <div class="header-bars"></div>
+      </div>
+      <div class="header-title">
+        <span class="header-main-title">Galerie</span>
+        <span class="header-sub">Bráška Jiřík & Bráška Jarda</span>
+      </div>
+      <div class="header-user">
+        <select id="uzivatelSelect" class="lcars-input" title="Kdo přidává">
+          <option value="jirik">Bráška Jiřík</option>
+          <option value="jarda">Bráška Jarda</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <main class="app-main">
+
+        <!-- ── GALERIE ── -->
+        <section class="sekce active" id="sekce-galerie">
+          <div class="sekce-header">
+            <span class="sekce-label">OBRAZOVÁ DATABÁZE</span>
+          </div>
+
+          <div class="gallery-add-bar">
+            <input type="text" id="galleryUrlInput" class="lcars-input"
+                   placeholder="https://i.imgur.com/...  (URL obrázku)">
+            <input type="text" id="galleryPopisInput" class="lcars-input gallery-popis-input"
+                   placeholder="Popis obrázku...">
+            <button class="btn-odeslat" id="btnPridatObrazekGalerie">PŘIDAT</button>
+          </div>
+
+          <div class="gallery-grid" id="galleryGrid">
+            <!-- Obrázky se renderují přes script.js -->
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════╗ -->
+  <!-- ║  MODÁL — PROHLÍŽEČ OBRÁZKŮ (slider)         ║ -->
+  <!-- ╚══════════════════════════════════════════════╝ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-title">OBRAZOVÁ DATABÁZE — DETAIL</span>
+        <span class="modal-citac" id="modalCitac"></span>
+        <button class="modal-close-btn" id="modalClose">✕ ZAVŘÍT</button>
+      </div>
+      <div class="modal-img-wrapper">
+        <button class="modal-arrow modal-arrow-prev" id="modalPrev" title="Předchozí">❮</button>
+        <img id="modalImage" src="" alt="Zobrazený obrázek">
+        <button class="modal-arrow modal-arrow-next" id="modalNext" title="Další">❯</button>
+      </div>
+      <div class="modal-footer">
+        <span id="modalPopis" class="modal-popis"></span>
+        <span id="modalAutor" class="modal-autor"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Moduly (každý se inicializuje sám po DOMContentLoaded) -->
+  <script type="module" src="script.js"></script>
+  <script type="module" src="gallery-sekce.js"></script>
+  <script type="module" src="gallery-video.js"></script>
+  <script type="module" src="gallery-collapse.js"></script>
+</body>
+</html>

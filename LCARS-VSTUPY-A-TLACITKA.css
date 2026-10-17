@@ -1,0 +1,54 @@
+/* ═══════════════════════════════════════════════════════════════
+   LCARS VSTUPY A TLAČÍTKA
+═══════════════════════════════════════════════════════════════ */
+.lcars-input {
+  flex: 1;
+  background: #1c1c1c;
+  border: 1px solid rgba(255,153,0,0.5);
+  color: var(--lcars-text);
+  padding: 10px 14px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.lcars-input:focus {
+  border-color: var(--lcars-secondary);
+  box-shadow: 0 0 6px rgba(153,204,255,0.25);
+}
+
+.lcars-input::placeholder { color: rgba(255,153,0,0.3); }
+
+.btn-odeslat {
+  background: var(--lcars-blue);
+  color: #000;
+  border: none;
+  padding: 10px 18px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-odeslat:hover { background: var(--lcars-secondary); }
+
+.btn-image-attach {
+  background: rgba(153,153,204,0.2);
+  color: var(--lcars-secondary);
+  border: 1px solid var(--lcars-purple);
+  padding: 10px 13px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.btn-image-attach:hover { background: rgba(153,153,204,0.35); }

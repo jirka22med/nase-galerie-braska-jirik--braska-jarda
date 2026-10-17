@@ -1,0 +1,46 @@
+/* ═══════════════════════════════════════════════════════════════
+   MAIN CONTENT AREA
+═══════════════════════════════════════════════════════════════ */
+.app-main {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--lcars-bg);
+  border-left: 4px solid var(--lcars-primary);
+}
+
+/* Sekce */
+.sekce {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sekce.active { display: flex; }
+
+.sekce-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background: var(--lcars-dark);
+  border-bottom: 2px solid var(--lcars-primary);
+  flex-shrink: 0;
+}
+
+.sekce-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--lcars-secondary);
+}
+
+.sekce-status {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  color: var(--lcars-green);
+  letter-spacing: 2px;
+}
