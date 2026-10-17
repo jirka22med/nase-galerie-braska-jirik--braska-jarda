@@ -116,7 +116,21 @@
     letter-spacing: 1px;
   }
 
-  .header-sub { display: none; }
+  .header-sub {
+    display: block;
+    font-size: 7px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Výběr uživatele v hlavičce galerie */
+  #uzivatelSelect {
+    font-size: 11px;
+    padding: 6px 8px;
+    max-width: 120px;
+  }
 
   .user-display-name { display: none; }
 
@@ -222,6 +236,8 @@
   .header-bar-bottom { height: 6px; }
 
   .header-main-title { font-size: 9px; letter-spacing: 0px; }
+  .header-sub { font-size: 6px; letter-spacing: 0; }
+  #uzivatelSelect { font-size: 10px; max-width: 100px; }
   .header-user { padding: 0 6px; }
 
   .user-avatar, .user-avatar-placeholder {
