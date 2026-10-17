@@ -58,6 +58,7 @@
 
 /* Indikační badge na fotografii (název sekce) */
 .gallery-sekce-badge {
+  display: none; /* skryto, ale zachováno v kódu */
   position: absolute;
   top: 8px;
   left: 8px;
