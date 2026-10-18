@@ -13,7 +13,7 @@ const __gallery_video_START = performance.now();
 //   <script type="module" src="gallery-video.js"></script>
 // (modul se inicializuje sám, nic dalšího volat netřeba)
 
-import { db, auth } from './firebase-config.js';
+import { db } from './firebase-config.js';
 import {
   collection,
   addDoc,
@@ -152,7 +152,7 @@ function injektovatUI(sekceGalerie) {
 //  ODESLÁNÍ NOVÉHO VIDEA
 // ════════════════════════════════════════════════════════════════
 async function odeslatVideo() {
-  const user = auth.currentUser;
+  const user = window.__galerieUzivatel?.(); // uživatel z výběru v hlavičce (bez přihlášení)
   if (!user) return;
 
   const urlInput   = document.getElementById("videoUrlInput");
