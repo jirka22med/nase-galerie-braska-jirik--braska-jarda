@@ -38,7 +38,7 @@ const VSE_ID = "__vse__"; // virtuální tab "VŠE" — nikdy se neukládá do D
 // ════════════════════════════════════════════════════════════════
 let sekceSeznam      = [];        // [{id, nazev, poradi}] z gallery_sekce
 let obrazkySekce      = [];       // [{id, sekce}] ve stejném pořadí jako #galleryGrid
-let aktivniSekce      = VSE_ID;
+let aktivniSekce      = "spolecna"; // výchozí záložka po otevření (VSE_ID = zobrazit vše)
 let presunObrazekId   = null;
 
 // ════════════════════════════════════════════════════════════════
