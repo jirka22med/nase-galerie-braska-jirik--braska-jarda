@@ -85,6 +85,7 @@ function vykresitGalerii(obrazky) {
   grid.innerHTML = obrazky.map((o, index) => `
     <div class="gallery-item" onclick="window.__otevritSlider(${index})">
       <img src="${escAttr(o.url)}" alt="${escAttr(o.popis)}"
+           loading="lazy" decoding="async"
            onerror="this.parentElement.classList.add('gallery-item-broken')">
       <div class="gallery-item-overlay">
         <div class="gallery-popis">${escHtml(o.popis)}</div>
