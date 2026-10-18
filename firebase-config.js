@@ -1,11 +1,24 @@
 const __firebase_config_START = performance.now();
 
-// firebase-config.js — LCARS Messenger | Admirál Jiřík
+// firebase-config.js — LCARS Galerie | Admirál Jiřík
 // Inicializace Firebase — základ všeho
+//
+// RYCHLOST:
+//  • firebase-auth se už nenačítá (galerie nepoužívá přihlášení) —
+//    ušetří stažení velkého souboru + dotaz na identitytoolkit
+//  • Firestore má perzistentní cache (IndexedDB, spravuje ji sám Firebase,
+//    NE localStorage): při dalším otevření se obsah ukáže hned z cache
+//    a na pozadí se srovná s databází. Vypnout: POUZIT_CACHE = false
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import {
+  getFirestore,
+  initializeFirestore,
+  persistentLocalCache,
+  persistentMultipleTabManager
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const POUZIT_CACHE = true;
 
 const firebaseConfig = {
   apiKey: "AIzaSyDLjV9havKCkXSQVLZx7Dx5IXfaBsQSmYE",
@@ -19,8 +32,19 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const db  = getFirestore(app);
-export const auth = getAuth(app);
+function vytvoritDb() {
+  if (!POUZIT_CACHE) return getFirestore(app);
+  try {
+    return initializeFirestore(app, {
+      localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() })
+    });
+  } catch (err) {
+    console.warn("Perzistentní cache nedostupná, jedu bez ní:", err);
+    return getFirestore(app);
+  }
+}
+
+export const db = vytvoritDb();
 export default app;
 
 
